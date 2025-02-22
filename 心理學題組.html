@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>存在主義焦慮認知診斷系統</title>
+	<h1>「遊戲破關後的迷茫」——從虛擬到現實的存在主義探索</h1>
+	<p>小明是一名高三學生，過去一年他投入大量時間在一款武俠遊戲中。每天刷怪、解任務、提升修為，終於在歷經千辛萬苦後，成功突破卡關一年的難關，獲得了夢寐以求的絕世武學。然而，當他達成目標後，卻感到一陣空虛與迷茫。他開始思考：「我花了這麼多時間，究竟是為了什麼？接下來還能做什麼？」這種感受甚至延伸到現實生活，讓他對學業、未來產生了類似的困惑——「我這麼努力讀書，考上大學後又能怎樣？人生難道就是不斷達成目標，然後再尋找下一個目標嗎？」</p>
+        
+        <p>小明的故事反映了現代青少年常見的<span class="highlight">「目標真空」</span>現象。在遊戲中，我們可以透過明確的任務指引和即時反饋獲得成就感，但現實生活卻沒有這麼清晰的「攻略」。當我們完成一個階段性目標（如考試、升學、求職）後，往往會陷入「意義危機」，開始質疑自己的努力是否值得，甚至對未來感到焦慮。</p>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .question-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .option-btn:hover {
+            transform: translateY(-2px);
+            background: #0066cc;
+        }
+
+        .analysis {
+            color: #8b0000;
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 4px solid #8b0000;
+            background: #fff0f0;
+        }
+
+        .score-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="score-panel" id="scorePanel">認知韌性指數：0/4</div>
+    <div id="content"></div>
+    <script>
+        const questions = [
+            {
+                stem: "【題幹】高三生突破遊戲關卡後產生目標真空感，投射到現實產生意義焦慮。這現象最符合：",
+                options: [
+                    {text: "A. 勝利後抑鬱效應(Post-victory blues)", correct: true},
+                    {text: "B. 霍桑效應(Hawthorne effect)", correct: false},
+                    {text: "C. 鄧寧-克魯格效應(Dunning-Kruger)", correct: false},
+                    {text: "D. 巴納姆效應(Barnum effect)", correct: false}
+                ],
+                analysis: "【解析】選擇A。勝利後抑鬱效應常見於競技運動員，多巴胺急劇下降導致動機系統失調。解決方案：建立目標連續體(Continuous Target Architecture)"
+            },
+            {
+                stem: "【題幹】'適度焦慮提升效率，過度反而抑制'符合：",
+                options: [
+                    {text: "A. 耶克斯-多德森定律(Yerkes-Dodson)", correct: true},
+                    {text: "B. 破窗效應(Broken windows)", correct: false},
+                    {text: "C. 馬太效應(Matthew effect)", correct: false},
+                    {text: "D. 錨定效應(Anchoring effect)", correct: false}
+                ],
+                analysis: "【解析】選擇A。耶克斯-多德森曲線顯示：喚醒水平與表現呈倒U型關係。應用策略：建立焦慮能量轉換閥值(Anxiety-Energy Conversion Threshold)"
+            },
+            {
+                stem: "【題幹】'對未來的心理模擬引發存在焦慮'屬於：",
+                options: [
+                    {text: "A. 預期性認知負載(Anticipatory load)", correct: true},
+                    {text: "B. 確認偏誤(Confirmation bias)", correct: false},
+                    {text: "C. 認知失調(Cognitive dissonance)", correct: false},
+                    {text: "D. 框架效應(Framing effect)", correct: false}
+                ],
+                analysis: "【解析】選擇A。前額葉的場景預演功能進化優勢，但可能導致現實過載。緩解方案：實施心理沙盒模擬(Mental Sandbox Simulation)"
+            },
+            {
+                stem: "【題幹】'將焦慮轉化為認知工具'的核心機制是：",
+                options: [
+                    {text: "A. 反脆弱性建構(Antifragility)", correct: true},
+                    {text: "B. 情緒標籤化(Emotional labeling)", correct: false},
+                    {text: "C. 認知再評估(Reappraisal)", correct: false},
+                    {text: "D. 暴露療法(Exposure therapy)", correct: false}
+                ],
+                analysis: "【解析】選擇A。塔勒布的反脆弱理論指出：系統在壓力下會變得更強韌。操作協議：建立壓力梯度暴露系統(Stress Gradient Exposure Protocol)"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let showAnalysis = false;
+
+        function renderQuestion() {
+            const contentDiv = document.getElementById('content');
+            const question = questions[currentQuestion];
+            
+            let html = `
+                <div class="question-container">
+                    <div class="stem">${question.stem}</div>
+                    <div id="options">`;
+
+            question.options.forEach(option => {
+                html += `<button class="option-btn" onclick="handleAnswer(${option.correct})">${option.text}</button>`;
+            });
+
+            html += `</div>`;
+
+            if(showAnalysis) {
+                html += `<div class="analysis">${question.analysis}</div>
+                        <button class="option-btn" style="margin-top:20px" 
+                                onclick="nextQuestion()">繼續下一題 →</button>`;
+            }
+
+            html += `</div>`;
+            contentDiv.innerHTML = html;
+            updateScore();
+        }
+
+        function handleAnswer(isCorrect) {
+            if(!showAnalysis) {
+                if(isCorrect) score++;
+                showAnalysis = true;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            showAnalysis = false;
+            if(currentQuestion >= questions.length) {
+                showFinalResult();
+            } else {
+                renderQuestion();
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('scorePanel').innerText = 
+                `認知韌性指數：${score}/${questions.length}`;
+        }
+
+        function showFinalResult() {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = `
+                <div class="question-container" style="text-align:center">
+                    <h2>診斷完成！</h2>
+                    <p style="font-size:1.2em">你的神經可塑性評分：${score}/${questions.length}</p>
+                    <div class="analysis" style="margin-top:20px">
+                        ${getResultAnalysis()}
+                    </div>
+                    <button class="option-btn" style="margin-top:20px" 
+                            onclick="location.reload()">重新開始測驗</button>
+                </div>`;
+        }
+
+        function getResultAnalysis() {
+            const levels = [
+                {threshold: 4, text: "認知韌性極佳，具備壓力轉化天賦"},
+                {threshold: 3, text: "神經可塑性良好，建議加強跨領域連結"},
+                {threshold: 2, text: "存在認知慣性，需建立反脆弱機制"},
+                {threshold: 0, text: "建議進行認知重構訓練"}
+            ];
+            
+            return levels.find(l => score >= l.threshold).text;
+        }
+
+        // 初始化
+        renderQuestion();
+    </script>
+</body>
+</html>
